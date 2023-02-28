@@ -26,6 +26,7 @@ public class E1_ArithmeticException {
 		} finally {
 			
 		}
+		
 		System.out.println("종료합니다.");
 		sc.close();
 	}	
