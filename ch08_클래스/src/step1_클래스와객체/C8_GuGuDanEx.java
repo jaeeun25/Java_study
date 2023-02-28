@@ -56,5 +56,4 @@ public class C8_GuGuDanEx {
 		gugudan2.guguDan();	
 		
 	}
-
 }
