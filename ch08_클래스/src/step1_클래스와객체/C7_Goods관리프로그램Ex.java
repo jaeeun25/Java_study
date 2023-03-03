@@ -12,28 +12,28 @@ class Goods1{
 		this.cnt = cnt;
 		this.sale = sale;
 	}
+}
+
+class GM{
 	
-	boolean insert(int i, Scanner sc, int n) {
-		System.out.println((i+1) + "번째 제품을 등록하였습니다.");	
-		System.out.println("계속하시겠습니까?(y/n)");
-		String answer = sc.next();
-		if(answer.equals("y")) {
-			if((i+1) >= n) {
-				System.out.println("더 등록할 수 없습니다.");
-				return false;
-			}
-			return true;
-		}
-		else {
-			return false;
-		}
+	Goods1[] goods;
+	
+	void setArr(int n) {
+		goods = new Goods1[n];
 	}
 	
-	void list() {
-		System.out.println("\n제품명: " + name +
-							"\n가격: " + price +
-							"\n재고량: " + cnt +
-							"\n판매량: " + sale);
+	void insert(String name, int price, int cnt, int sale, int i) {
+		Goods1 goods = new Goods1(name, price, cnt, sale);
+		this.goods[i] = goods;
+	}
+	
+	void list(int i) {
+		for(int n=0; n<i; n++) {
+			System.out.println("\n제품명: " +goods[n].name +
+					"\n가격: " + goods[n].price +
+					"\n재고량: " + goods[n].cnt +
+					"\n판매량: " + goods[n].sale);
+		}
 	}
 }
 
@@ -69,7 +69,7 @@ public class C7_Goods관리프로그램Ex {
 		Scanner sc = new Scanner(System.in);
 		
 		int menu, i=0, n=0;
-		Goods1[] g = null;
+		GM gm = new GM();
 		
 		while(true) {
 			System.out.println("--------------------------------------------");
@@ -86,7 +86,7 @@ public class C7_Goods관리프로그램Ex {
 					System.out.print("등록할 제품 수를 입력하시오 >> ");
 					n = sc.nextInt();
 					
-					g = new Goods1[n];
+					gm.setArr(n);
 				}
 				break;
 			case 2:
@@ -107,14 +107,27 @@ public class C7_Goods관리프로그램Ex {
 						System.out.print("판매량을 입력하시오 >> ");
 						int sale = sc.nextInt();
 						
-						g[i] = new Goods1(name, price, cnt, sale);
+						gm.insert(name, price, cnt, sale, i);
 						
-						if(!g[i].insert(i++, sc, n)) break;
+						System.out.println((i+1) + "번째 제품을 등록하였습니다.");	
+						
+						i++;
+					
+						System.out.println("계속하시겠습니까?(y/n)");
+						String answer = sc.next();
+						
+						if(answer.equals("y")) {
+							if(i >= n) {
+								System.out.println("더 등록할 수 없습니다.");
+								break;
+							}
+						}
+						else break;
 					}
 				}
 				break;
 			case 3:
-				for(int j=0; j<i; j++) g[j].list();
+				gm.list(i);
 				break;
 			case 4:
 				System.out.println("프로그램을 종료합니다.");
