@@ -1,6 +1,6 @@
 package step4_메소드;
 
-public class M_성적표 {
+public class M_성적표_실습 {
 	public static void main(String[] args) {
 		
 		String[] tit = {"이름", "국어", "영어", "수학", "총점", "평균"};

@@ -35,7 +35,7 @@ class Div{
 	}
 }
 
-public class M_Calculator {
+public class M_Calculator_실습 {
 	
 	public static void main(String[] args) {
 	
