@@ -34,7 +34,7 @@ public class Op6_증감연산자 {
 		System.out.println(sum);
 		System.out.println(num);
 		
-		sum = sum++ + 30;			// 대입보다 증감이 우선순위 먼저. 먼저 91 계산되고 sum 증감 되고 다시  91 대입되는 순인 듯
+		sum = sum++ + 30;			// 대입보다 증감이 우선순위 먼저. 먼저 91 계산되고 sum 증감 되고 다시  91 대입되는 순
 		System.out.println(sum);
 		
 		//*******************
