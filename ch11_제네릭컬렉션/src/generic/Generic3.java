@@ -1,4 +1,4 @@
-package collection;
+package generic;
 
 class Stack3<T>{	// T자리엔 객체 선언시 넣었던 타입 모두 들어감
 	T[] push(T[] e1) {

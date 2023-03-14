@@ -1,4 +1,4 @@
-package collection;
+package generic;
 
 class Stack1{
 	Integer[] push(Integer[] e1) {

@@ -1,4 +1,4 @@
-package collection;
+package generic;
 
 class Person{
 	String name = "홍길동";

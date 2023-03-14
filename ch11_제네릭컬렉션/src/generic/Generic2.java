@@ -1,4 +1,4 @@
-package collection;
+package generic;
 
 class Stack2{
 	Character[] push(Character[] e1) {

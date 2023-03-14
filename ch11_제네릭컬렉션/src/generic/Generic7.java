@@ -1,4 +1,4 @@
-package collection;
+package generic;
 
 class Point<T>{
 	T x;
