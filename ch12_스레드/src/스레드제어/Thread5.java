@@ -43,6 +43,7 @@ class GPanel extends JPanel{
 	}
 	
 	// 그래픽
+	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		
@@ -83,8 +84,8 @@ class GPanel extends JPanel{
 				int x = choon.getX();
 				int y = choon.getY()-1;		// y값은 위에서 부터 아래로 증가하므로 올라가는 것은 -를 해줘야한다.
 				System.out.println(y);
-				//if(y < -(choon.getHeight()))	// 라벨 높이 값구해서 컴포넌트 크기 넘어서도 계속 올라갈수있게 지정하고 이미지가 컴포넌트에서 아예 보이지 않으면 그때 삭제(즉 자기 이미지 높이 만큼 더 올라가는 것)
-				if(y < 0){					// 맨 위까지 올라갔는가? -> 꼭대기는 y=0이므로 아래로 갈 수록 값이 커짐, 왼쪽이 x=0
+				//if(y < -(choon.getHeight()))	// 라벨 높이 값 구해서 컴포넌트 크기 넘어서도 계속 올라갈수있게 지정하고 이미지가 컴포넌트에서 아예 보이지 않으면 그때 삭제(즉 자기 이미지 높이 만큼 더 올라가는 것)
+				if(y < 0){					// 맨 위까지 올라갔는가? -> 꼭대기는 y=0이므로 아래로 갈 수록 값이 커짐, 왼쪽이 x=0이므로 오른쪽으로 갈수록 값이 커짐.
 					remove(choon);
 					repaint();
 					return;

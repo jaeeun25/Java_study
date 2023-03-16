@@ -5,9 +5,9 @@ class ShareBoard{
 	int sum = 0;
 	
 	// 공유 영역
-	public void add() {
+	synchronized public void add() {
 		int n = sum;
-		//Thread.yield(); 	// 스레드 실행을 양보 이거 왜 있는건지?(synchronized 없을때의 왜 잇는지 모르겠음)
+		//Thread.yield(); 	// 스레드 실행을 양보 이거 왜 있는건지?(synchronized 없을때의 있고 없고의 차이가..?)
 		n += 10;
 		sum = n;
 		System.out.println(Thread.currentThread().getName() + ":" + sum);	// 현재 실행 중인 스레드 이름 리턴

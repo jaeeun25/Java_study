@@ -9,8 +9,8 @@ class TargetThread extends Thread{
 		
 		try {
 			sleep(1500);		// 일시정지(대기) - 1.5초 (즉 대기 중에 아래 스레드는 sleep(500)으로 3번 돈다. 그래서 timed_waiting 상태가 3번 나옴)
+			
 		} catch (InterruptedException e) {}
-		
 		for(long i=0; i<1000000000; i++) {
 			// 내용 없음
 		}
@@ -38,6 +38,7 @@ class StatePrintThread extends Thread{
 			
 			try {
 				sleep(500);			// 0.5초
+				
 			} catch (InterruptedException e) {}
 		}
 	}
