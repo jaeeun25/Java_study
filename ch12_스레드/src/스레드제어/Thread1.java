@@ -18,7 +18,7 @@ class TargetThread extends Thread{
 }
 
 class StatePrintThread extends Thread{
-	Thread targetThread;	// tagget의 스레드 상태를 조회하려함
+	Thread targetThread;	// target의 스레드 상태를 조회하려함
 	
 	public StatePrintThread(Thread targetThread) {
 		this.targetThread = targetThread;
@@ -38,7 +38,6 @@ class StatePrintThread extends Thread{
 			
 			try {
 				sleep(500);			// 0.5초
-				
 			} catch (InterruptedException e) {}
 		}
 	}

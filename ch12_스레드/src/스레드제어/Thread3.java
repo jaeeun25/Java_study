@@ -7,7 +7,8 @@ class ShareBoard{
 	// 공유 영역
 	synchronized public void add() {
 		int n = sum;
-		//Thread.yield(); 	// 스레드 실행을 양보 이거 왜 있는건지?(synchronized 없을때의 있고 없고의 차이가..?)
+		//Thread.yield();				// syschronized 없을 때 yield 쓰면 양보를 하기때문에 차례대로 값을 올림,
+										// 안쓰면 동시에 쓰기 때문에 순차적으로 더해지지않고 다른 스레드가 올린값으로 계산한 결과가 나와 갑자기 값이 뛰는 경우가 보임
 		n += 10;
 		sum = n;
 		System.out.println(Thread.currentThread().getName() + ":" + sum);	// 현재 실행 중인 스레드 이름 리턴
@@ -26,9 +27,14 @@ class StudentThread extends Thread {
 	
 	@Override
 	public void run() {
-		for(int i=0; i<10; i++) {
-			// 공유하는 곳을 호출한 곳
-			board.add();
+		try {
+			for(int i=0; i<10; i++) {
+				// 공유하는 곳을 호출한 곳
+				//sleep(500);
+				board.add();
+			}
+		} catch(Exception e) {
+			
 		}
 	}
 }
