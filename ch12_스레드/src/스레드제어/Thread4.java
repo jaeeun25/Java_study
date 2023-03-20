@@ -9,8 +9,6 @@ import java.awt.event.KeyListener;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-// consume - notify 막으면 x표 눌러도 안꺼짐, 100까지되면 키보드 안먹고, 숫자는 줄어드는데 화면은 그대로
-// 넘어가면 맥스에서 멈춰야하는데 쭈우우우욱 넘어감
 
 // 공유되는 라벨
 class MyLabel extends JLabel{
@@ -35,25 +33,20 @@ class MyLabel extends JLabel{
 	
 	// 공유 - 막대바 채우는 영역
 	synchronized void fill() {
-		//System.out.println(maxBarSize + " : " + barSize);
 		if(barSize == maxBarSize) {
 			try {
-				System.out.println("1");
 				wait();		// 대기 -> 일시정지
-				System.out.println("11");
 			} catch (Exception e) {
 				return;
 			}
 		}
 		barSize++;
-		System.out.println(maxBarSize + " : " + barSize);
 		repaint();
 		notify();			// 대기 깨움 -> 실행대기			// 막으면 증가만하고 감소되지 않음 -> 맨 처음 consume()에서 barSize=0으로 스레드가 wait되고,
-		System.out.println("22");										// fill()함수에서 증가해도 repaint()로 증가하는 현상은 보이나 notify()가 막혀서 스레드는 계속 wait인 상태라 consume()에 접근하지 못해 감소가 안됨.
+														// fill()함수에서 증가해도 repaint()로 증가하는 현상은 보이나 notify()가 막혀서 스레드는 계속 wait인 상태라 consume()에 접근하지 못해 감소가 안됨.
 	}
 	
 	synchronized void consume() {
-		System.out.println("감소: "+maxBarSize + " :: " + barSize);
 		if(barSize == 0) {
 			try {
 				wait();
@@ -61,10 +54,10 @@ class MyLabel extends JLabel{
 				return;
 			}
 		}
+		
 		barSize--;
 		repaint();
-		System.out.println(maxBarSize + " :: " + barSize);
-		//notify();				//100찍고 내ㅕㄹ오지 않음
+		notify();
 	}
 }
 
@@ -80,7 +73,6 @@ class ConsumerThread extends Thread{
 
 		while(true) {
 			try {
-				System.out.println(getState());
 				sleep(200);
 				bar.consume();
 			} catch (InterruptedException e) {
@@ -106,12 +98,8 @@ public class Thread4 extends JFrame{
 		bar.setLocation(20, 50);
 		bar.setSize(300, 20);
 		c.add(bar);
-		
-		ConsumerThread th = new ConsumerThread(bar);
-		th.start();
-		
+
 		c.addKeyListener(new KeyListener() {
-			
 			@Override
 			public void keyTyped(KeyEvent e) {}
 			
@@ -121,16 +109,15 @@ public class Thread4 extends JFrame{
 			@Override
 			public void keyPressed(KeyEvent e) {
 				bar.fill();			// 키를 누르면 바 늘어남
-				System.out.println("키: " + th.getState());
 			}
 		});
 		
 		setSize(350, 200);
 		setVisible(true);
 		c.requestFocus();			// 키 이벤트를 받을 컴포넌트 강제 지정(컴포넌트에 포커스 강제 지정)
-
 		
-		
+		ConsumerThread th = new ConsumerThread(bar);
+		th.start();
 	}
 	public static void main(String[] args) {
 		new Thread4("막대바");
