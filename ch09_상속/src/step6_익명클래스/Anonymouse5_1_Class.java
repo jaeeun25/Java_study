@@ -49,7 +49,7 @@ public class Anonymouse5_1_Class {
 	public static void main(String[] args) {
 		Child1 ch = new Child1();
 		Person1 pp = ch.method3(new Person1() {
-			String str = "강호동";
+			String str = "박길동";
 			void study() {
 				System.out.println("무엇이든 잘합니다.");
 			}

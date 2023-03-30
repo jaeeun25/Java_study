@@ -25,8 +25,6 @@ public class Op7_대입연산자 {
 		num1 -= 3;
 		System.out.println("num1 = " + num1);
 		
-		// 나머지도 해보세용~
-		
 		num1 *= 10;
 		System.out.println("num1 = " + num1);
 		

@@ -8,7 +8,7 @@ class Person extends Object{
 	
 	@Override
 	public String toString() {
-		return "Objrect입니다";
+		return "Object입니다";
 	}
 
 	// 아래 함수 쓰든 안쓰든 일단 Object 상속받으므로 갖고있음

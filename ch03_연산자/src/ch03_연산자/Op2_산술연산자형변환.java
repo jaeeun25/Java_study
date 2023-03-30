@@ -34,23 +34,7 @@ public class Op2_산술연산자형변환 {
 		double h = 3000.0;
 		
 		float result5 = f + g;
-		double result6 = g + h;		// result6이 float인 경우 오류
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-	
+		double result6 = g + h;		// result6이 float인 경우 오류	
 	}
 
 }

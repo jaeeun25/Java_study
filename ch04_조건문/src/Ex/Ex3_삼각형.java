@@ -51,9 +51,6 @@ public class Ex3_삼각형 {
 		}
 		*/
 		
-		
-		
-		
 		sc.close();
 		
 	}

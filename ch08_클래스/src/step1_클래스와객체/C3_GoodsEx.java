@@ -69,8 +69,5 @@ public class C3_GoodsEx {
 			goods.sale_goods_count(n);
 			System.out.println("매출액: " + goods.sales_cal());
 			goods.goods_count();
-			
-			
-			
 		}
 }

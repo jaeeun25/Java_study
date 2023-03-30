@@ -17,10 +17,6 @@ public class Ex5 {
 		time %= 24;
 		
 		System.out.println(day + "일 " + time + "시간");
-		
-		
-		
-
 	}
 
 }

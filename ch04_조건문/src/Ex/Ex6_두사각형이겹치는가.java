@@ -32,22 +32,6 @@ public class Ex6_두사각형이겹치는가 {
 		else {
 			System.out.println("두 사각형은 겹친다.");
 		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-			
-		
-		
-		
-		
-
 	}
 
 }

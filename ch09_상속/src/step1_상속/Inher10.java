@@ -37,7 +37,5 @@ public class Inher10 {
 			C4 c1 = new C4();
 			System.out.println("**************");
 			C4 c2 = new C4(3);
-			
-		
 	}
 }
