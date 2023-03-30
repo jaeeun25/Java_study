@@ -63,8 +63,5 @@ public class Generic11 {
 		p3.setMaterial(new Plastic());
 		Plastic pp = p3.getMaterial();
 		pp.doPrinting();
-		
-		
-		
 	}
 }

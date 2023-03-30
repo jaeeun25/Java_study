@@ -38,8 +38,8 @@ class Person implements Serializable{	// 직렬화 시키고 싶은 클래스 im
 public class S1_Serialization{
 	public static void main(String[] args) throws ClassNotFoundException  {
 			
-		Person park = new Person("박재용", "대표이사");
-		Person kim = new Person("김철수", "상무이사");
+		Person park = new Person("박길동", "대표이사");
+		Person kim = new Person("김길동", "상무이사");
 		
 		try {
 			//1. 스트림

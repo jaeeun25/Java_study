@@ -29,8 +29,8 @@ class Goods implements Serializable{
 public class S2_Serialization {
 	public static void main(String[] args) throws ClassNotFoundException {
 		
-		Goods snack1 = new Goods("감자깡", 1800, "농심");
-		Goods snack2 = new Goods("새우깡", 2000, "롯데");
+		Goods snack1 = new Goods("상품1", 1800, "제조사1");
+		Goods snack2 = new Goods("상품2", 2000, "제조사2");
 		
 		// 상품 목록 파일 생성
 		try {
